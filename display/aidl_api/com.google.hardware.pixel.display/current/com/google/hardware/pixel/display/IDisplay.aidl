@@ -44,4 +44,5 @@ interface IDisplay {
   boolean isLhbmSupported();
   void setLhbmState(in boolean enabled);
   boolean getLhbmState();
+  int setCompensationImageHandle(in android.hardware.common.NativeHandle native_handle, in String imageName);
 }
