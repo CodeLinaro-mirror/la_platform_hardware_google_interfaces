@@ -47,4 +47,5 @@ interface IDisplay {
   int setCompensationImageHandle(in android.hardware.common.NativeHandle native_handle, in String imageName);
   int setMinIdleRefreshRate(in int fps);
   int setRefreshRateThrottle(in int delayMs);
+  com.google.hardware.pixel.display.HistogramErrorCode histogramSample(in android.hardware.graphics.common.Rect roi, in com.google.hardware.pixel.display.Weight weight, in com.google.hardware.pixel.display.HistogramPos pos, in com.google.hardware.pixel.display.Priority pri, out char[] histogrambuffer);
 }
