@@ -49,4 +49,6 @@ interface IDisplay {
   int setRefreshRateThrottle(in int delayMs);
   com.google.hardware.pixel.display.HistogramErrorCode histogramSample(in android.hardware.graphics.common.Rect roi, in com.google.hardware.pixel.display.Weight weight, in com.google.hardware.pixel.display.HistogramPos pos, in com.google.hardware.pixel.display.Priority pri, out char[] histogrambuffer);
   com.google.hardware.pixel.display.PanelCalibrationStatus getPanelCalibrationStatus();
+  boolean isDbmSupported();
+  void setDbmState(in boolean enabled);
 }
