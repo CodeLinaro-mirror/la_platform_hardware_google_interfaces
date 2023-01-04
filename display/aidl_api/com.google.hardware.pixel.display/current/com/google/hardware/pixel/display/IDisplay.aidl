@@ -51,4 +51,7 @@ interface IDisplay {
   com.google.hardware.pixel.display.PanelCalibrationStatus getPanelCalibrationStatus();
   boolean isDbmSupported();
   void setDbmState(in boolean enabled);
+  void setPeakRefreshRate(in int rate);
+  void setLowPowerMode(in boolean enabled);
+  boolean isOperationRateSupported();
 }
