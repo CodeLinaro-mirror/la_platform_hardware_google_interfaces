@@ -38,5 +38,5 @@ interface IBluetoothSar {
   oneway void setBluetoothTechBasedTxPowerCap(in byte brCap, in byte edrCap, in byte bleCap);
   oneway void setBluetoothModeBasedTxPowerCap(in byte[3] chain0Cap, in byte[3] chain1Cap, in byte[6] beamformingCap);
   oneway void setBluetoothModeBasedTxPowerCapPlusHR(in byte[4] chain0Cap, in byte[4] chain1Cap, in byte[8] beamformingCap);
-  oneway void setBluetoothAreaCode(in int areaCode);
+  oneway void setBluetoothAreaCode(in byte[3] areaCode);
 }
