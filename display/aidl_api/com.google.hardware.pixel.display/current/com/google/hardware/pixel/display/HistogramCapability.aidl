@@ -39,4 +39,5 @@ parcelable HistogramCapability {
   int fullResolutionWidth;
   int fullResolutionHeight;
   com.google.hardware.pixel.display.HistogramSamplePos[] supportSamplePosList;
+  boolean supportBlockingRoi;
 }
