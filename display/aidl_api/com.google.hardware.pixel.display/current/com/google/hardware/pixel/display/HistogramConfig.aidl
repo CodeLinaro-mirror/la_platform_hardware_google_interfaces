@@ -37,4 +37,5 @@ parcelable HistogramConfig {
   android.hardware.graphics.common.Rect roi;
   com.google.hardware.pixel.display.Weight weights;
   com.google.hardware.pixel.display.HistogramSamplePos samplePos;
+  @nullable android.hardware.graphics.common.Rect blockingRoi;
 }
