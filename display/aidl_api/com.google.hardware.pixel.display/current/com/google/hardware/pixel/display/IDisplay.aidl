@@ -59,4 +59,5 @@ interface IDisplay {
   com.google.hardware.pixel.display.HistogramErrorCode queryHistogram(in IBinder token, out char[] histogramBuffer);
   com.google.hardware.pixel.display.HistogramErrorCode reconfigHistogram(in IBinder token, in com.google.hardware.pixel.display.HistogramConfig histogramConfig);
   com.google.hardware.pixel.display.HistogramErrorCode unregisterHistogram(in IBinder token);
+  int setFixedTe2Rate(in int rateHz);
 }
