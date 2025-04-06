@@ -66,4 +66,6 @@ interface IDisplay {
   int setFixedTe2Frequency(in int freqHz);
   void setPwmMode(in com.google.hardware.pixel.display.PwmMode mode);
   com.google.hardware.pixel.display.ScreenPartStatus getPanelReplacementStatus();
+  int setDozeType(in com.google.hardware.pixel.display.DozeType type);
+  void setIrcMode(in com.google.hardware.pixel.display.IrcMode mode);
 }

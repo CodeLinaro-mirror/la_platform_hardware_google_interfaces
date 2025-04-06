@@ -18,12 +18,14 @@ package com.google.hardware.pixel.display;
 import android.hardware.common.NativeHandle;
 import android.hardware.graphics.common.Rect;
 import com.google.hardware.pixel.display.DisplayStats;
+import com.google.hardware.pixel.display.DozeType;
 import com.google.hardware.pixel.display.HbmState;
 import com.google.hardware.pixel.display.HistogramCapability;
 import com.google.hardware.pixel.display.HistogramConfig;
 import com.google.hardware.pixel.display.HistogramErrorCode;
 import com.google.hardware.pixel.display.HistogramPos;
 import com.google.hardware.pixel.display.IDisplayProximitySensorCallback;
+import com.google.hardware.pixel.display.IrcMode;
 import com.google.hardware.pixel.display.LbeState;
 import com.google.hardware.pixel.display.PanelCalibrationStatus;
 import com.google.hardware.pixel.display.Priority;
@@ -360,4 +362,22 @@ interface IDisplay {
      * @return status of panel replacement.
      */
     ScreenPartStatus getPanelReplacementStatus();
+
+    /**
+     * Set Doze Type
+     *
+     * @param DozeType
+     * @return errno if there was a problem with the request, zero if successful
+     */
+    int setDozeType(in DozeType type);
+
+    /**
+     * Set IRC Mode
+     *
+     * @param mode.
+     * enum irc_mode - possible IRC states
+     *                 @IRC_FLAT_DEFAULT: IR compensation on (default configuration)
+     *                 @IRC_OFF: IR compensation off, to allow for maximum brightness in outdoor sun
+     */
+    void setIrcMode(in IrcMode mode);
 }
