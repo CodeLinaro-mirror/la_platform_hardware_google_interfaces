@@ -36,4 +36,6 @@ package hardware.google.ril_ext;
 interface IRilExtIndication {
   void registerCarrierConfigChange(in String[] registeredKeys, in String[] unregisteredKeys);
   void triggerBugreport(in String title);
+  void registerPlmnBasedCarrierConfigChange(in hardware.google.ril_ext.PlmnType plmnType, in String[] registeredKeys);
+  void plmnChanged(in hardware.google.ril_ext.PlmnType plmnType, in String plmn);
 }
