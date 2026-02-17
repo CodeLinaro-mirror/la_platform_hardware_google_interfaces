@@ -21,4 +21,5 @@ package com.google.hardware.pixel.display;
 enum HistogramSamplePos {
     POST_POSTPROC = 0,
     PRE_POSTPROC = 1,
+    POST_DPUPROC = 2,
 }

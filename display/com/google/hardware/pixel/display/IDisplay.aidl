@@ -17,6 +17,7 @@
 package com.google.hardware.pixel.display;
 import android.hardware.common.NativeHandle;
 import android.hardware.graphics.common.Rect;
+import com.google.hardware.pixel.display.DisplayFeatureFlag;
 import com.google.hardware.pixel.display.DisplayStats;
 import com.google.hardware.pixel.display.DozeType;
 import com.google.hardware.pixel.display.HbmState;
@@ -25,6 +26,9 @@ import com.google.hardware.pixel.display.HistogramConfig;
 import com.google.hardware.pixel.display.HistogramErrorCode;
 import com.google.hardware.pixel.display.HistogramPos;
 import com.google.hardware.pixel.display.IDisplayProximitySensorCallback;
+import com.google.hardware.pixel.display.IDisplayDisplayModeRequestCallback;
+import com.google.hardware.pixel.display.IHistogramCallback;
+import com.google.hardware.pixel.display.IHistogramObserver;
 import com.google.hardware.pixel.display.IrcMode;
 import com.google.hardware.pixel.display.IrcModeCapability;
 import com.google.hardware.pixel.display.LbeState;
@@ -332,6 +336,8 @@ interface IDisplay {
      *
      * @return true if the callback of proximity sensor state is supported
      *         false if not supported.
+     *
+     * @deprecated This method is not used with the DisplayModeRequest callback.
      */
     boolean isProximitySensorStateCallbackSupported();
 
@@ -339,6 +345,8 @@ interface IDisplay {
      * Register the callback function for proximity sensor state change (active/inactive)
      *
      * @param callback instance of the IDisplayProximitySensorCallback
+     *
+     * @deprecated This method is replaced by registerDisplayModeRequestCallback.
      */
     void registerProximitySensorStateChangeCallback(in IDisplayProximitySensorCallback callback);
 
@@ -408,4 +416,35 @@ interface IDisplay {
      * @return IrcModeCapability which describes the Irc Mode capability for the platform.
      */
     IrcModeCapability getIrcModeCapability();
+
+    /**
+     * Creates and returns a new observer for the display histogram.
+     *
+     * The IHistogramCallback object provided here will be used by the displayHAL
+     * to send histogram events back to the observer.
+     *
+     * @param name A unique identifier for the histogram observer.
+     * @param callback The IHistogramCallback object.
+     * @return The newly created histogram observer.
+     */
+    IHistogramObserver createHistogramObserver(in String name, in IHistogramCallback callback);
+
+    /**
+     * Set feature flag
+     *
+     * The setFeatureFlag will be called by display client (e.g., dcservice), and the flag will
+     * be applied for the whole device. That is, we'll enable (or disable) the feature for
+     * primary and secondary display at the same time.
+     *
+     * @param updatedFlag. The flag contains the feature id and its value. When its value is
+     *                     true (false), the corresponding feature will be enabled (disabled).
+     */
+    void setFeatureFlag(in DisplayFeatureFlag updatedFlag);
+
+    /**
+     * Register the callback function for a display mode request
+     *
+     * @param callback instance of the IDisplayDisplayModeRequestCallback
+     */
+    void registerDisplayModeRequestCallback(in IDisplayDisplayModeRequestCallback callback);
 }
