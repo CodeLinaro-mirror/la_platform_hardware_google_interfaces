@@ -472,12 +472,4 @@ interface IDisplay {
      * @param freqsKHz An array of preferred frequencies in KHz.
      */
     oneway void setPreferredDisplayFreq(DisplayConfigType configType, in int[] freqsKHz);
-
-    /**
-     * Set Telemetry Logging Enabled
-     *
-     * @param enabled true to arm the telemetry reporter for a single snapshot,
-     *                false to disable.
-     */
-    void setScreenContextLoggingEnabled(in boolean enabled);
 }
